@@ -61,12 +61,14 @@ func (z *ZipEntry) findClass(className string) *zip.File {
 }
 
 func readClassInternal(fileInZip *zip.File) (data []byte, err error) {
-	rc, err := fileInZip.Open()
+	var rc io.ReadCloser
+	rc, err = fileInZip.Open()
 	if err != nil {
 		return nil, err
 	}
 	defer func() {
-		if closeErr := rc.Close(); closeErr != nil {
+		var closeErr error = rc.Close()
+		if closeErr != nil {
 			err = errors.Join(err, closeErr)
 		}
 	}()
