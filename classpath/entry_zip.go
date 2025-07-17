@@ -24,6 +24,7 @@ func newZipEntry(path string) *ZipEntry {
 
 func (z *ZipEntry) readClass(className string) ([]byte, Entry, error) {
 	// 如果句柄不存在，则首先获取文件句柄
+	// 若反复查找一个jar文件中的classFile，虚拟机在运行期间就无需反复开闭同一个jar。
 	if (*z).zipReadCloser == nil {
 		err := (*z).openJar()
 		if err != nil {
