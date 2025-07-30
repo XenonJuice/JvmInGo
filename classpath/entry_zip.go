@@ -68,7 +68,7 @@ func readClassInternal(fileInZip *zip.File) (data []byte, err error) {
 		return nil, err
 	}
 	defer func() {
-		var closeErr error = rc.Close()
+		var closeErr = rc.Close()
 		if closeErr != nil {
 			err = errors.Join(err, closeErr)
 		}
