@@ -20,7 +20,7 @@ func parseCmd() *Cmd {
 	var cmd *Cmd = new(Cmd)
 	flag.Usage = printUsage
 	// 注册flag
-	// 参数意义：用于存储解析后值的变量地址 ，用户在cmd行中使用的名称，默认值为false，，使用说明
+	// 参数意义：用于存储解析后值的变量地址 ，用户在cmd行中使用的名称，默认值为false，说明文字
 	flag.BoolVar(&((*cmd).helpFlag), "h", false, "help")
 	flag.BoolVar(&((*cmd).versionFlag), "v", false, "version")
 	flag.StringVar(&((*cmd).cpOption), "cp", "", "classpath")
