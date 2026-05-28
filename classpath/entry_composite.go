@@ -24,7 +24,7 @@ func (c CompositeEntry) readClass(className string) ([]byte, Entry, error) {
 			return data, entry, err
 		}
 	}
-	return nil, nil, errors.New("class not found :" + className)
+	return nil, nil, errors.New(classNotFoundMessage + className)
 }
 
 func (c CompositeEntry) toString() string {

@@ -33,8 +33,8 @@ func newWildcardEntry(path string) CompositeEntry {
 
 		name = dir.Name()
 		// 抽取jar文件
-		if strings.HasSuffix(name, ".jar") ||
-			strings.HasSuffix(name, ".JAR") {
+		if strings.HasSuffix(name, jarSuffix) ||
+			strings.HasSuffix(name, upperJarSuffix) {
 			jarPath := filepath.Join(baseDir, name)
 			compositeEntry = append(compositeEntry, newZipEntry(jarPath))
 		}

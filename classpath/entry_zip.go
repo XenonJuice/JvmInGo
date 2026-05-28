@@ -34,7 +34,7 @@ func (z *ZipEntry) readClass(className string) ([]byte, Entry, error) {
 	// 根据classname查找classFIle
 	classFile := (*z).findClass(className)
 	if classFile == nil {
-		return nil, nil, errors.New("class not found :" + className)
+		return nil, nil, errors.New(classNotFoundMessage + className)
 	}
 	// 开始获取classFile内容
 	data, err := readClassInternal(classFile)
