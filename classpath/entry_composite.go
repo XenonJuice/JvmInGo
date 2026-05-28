@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// CompositeEntry 表示多个Entry的组合体
 type CompositeEntry []Entry
 
 func newCompositeEntry(pathList string) CompositeEntry {
