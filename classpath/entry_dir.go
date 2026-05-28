@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 )
 
-// DirEntry DirEntry，表示目录形式的类路径
+// DirEntry ，表示目录形式的类路径
 type DirEntry struct {
 	absoluteDirPath string
 }
