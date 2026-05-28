@@ -74,7 +74,7 @@ func readClassInternal(fileInZip *zip.File) (data []byte, err error) {
 		}
 	}()
 	data, err = io.ReadAll(rc)
-	return
+	return data, err
 }
 
 func (z *ZipEntry) toString() string {
