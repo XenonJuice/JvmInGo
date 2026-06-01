@@ -1,22 +1,6 @@
 package classpath
 
-import (
-	"os"
-	"strings"
-)
-
-// 路径分隔符
-const pathListSeparator = string(os.PathListSeparator)
-
-const (
-	blank                   = ""
-	wildcardClasspathSuffix = "*"
-	jarSuffix               = ".jar"
-	upperJarSuffix          = ".JAR"
-	zipSuffix               = ".zip"
-	upperZipSuffix          = ".ZIP"
-	classNotFoundMessage    = "class not found :"
-)
+import "strings"
 
 type Entry interface {
 	// 寻找并加载class文件
@@ -24,7 +8,6 @@ type Entry interface {
 	toString() string
 }
 
-// todo
 func newEntry(path string) Entry {
 	// 如果path中包含路径列表分隔符，说明它是由多个classpath组成的路径列表。
 	// example on Unix/macOS: target/classes:lib/gson-2.10.1.jar:lib/slf4j-api-2.0.13.jar
