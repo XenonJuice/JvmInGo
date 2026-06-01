@@ -1,8 +1,13 @@
 package main
 
 import (
+	"JvmInGo/classpath"
 	"fmt"
+	"strings"
 )
+
+const dot = "."
+const slash = "/"
 
 func main() {
 	var empty string = ""
@@ -17,5 +22,13 @@ func main() {
 }
 
 func startJVM(cmd *Cmd) {
-	fmt.Printf("classPath: %s class: %s args: %v \n", (*cmd).cpOption, (*cmd).class, (*cmd).args)
+	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
+	fmt.Printf("classPath: %s class: %s args: %v \n", cp, (*cmd).class, (*cmd).args)
+	className := strings.Replace(cmd.class, dot, slash, -1)
+	classData, _, err := cp.ReadClass(className)
+	if err != nil {
+		fmt.Printf("Can not find or load main class %s\n", className)
+		return
+	}
+	fmt.Printf("class data : %v\n", classData)
 }
