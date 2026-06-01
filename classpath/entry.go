@@ -9,6 +9,7 @@ import (
 const pathListSeparator = string(os.PathListSeparator)
 
 const (
+	blank                   = ""
 	wildcardClasspathSuffix = "*"
 	jarSuffix               = ".jar"
 	upperJarSuffix          = ".JAR"
