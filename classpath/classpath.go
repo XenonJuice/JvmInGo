@@ -58,7 +58,7 @@ func (c *Classpath) parseUserClassPath(cpOption string) {
 	if cpOption == blank {
 		cpOption = defaultUserClasspath
 	}
-	c.userClassPath = newDirEntry(cpOption)
+	c.userClassPath = newEntry(cpOption)
 }
 
 // 优先使用用户输入的-Xjre选项作为jre目录
