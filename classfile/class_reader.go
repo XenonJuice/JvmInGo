@@ -59,6 +59,9 @@ func (c *ClassReader) readUint16s() []uint16 {
 // 用于读取指定数量的字节
 func (c *ClassReader) readBytes(length uint32) []byte {
 	var bytes []byte
+	if int(length) > len(c.data)-c.index {
+		panic("class_reader : index out of range")
+	}
 	bytes = c.data[c.index : c.index+int(length)]
 	c.index += int(length)
 	return bytes
