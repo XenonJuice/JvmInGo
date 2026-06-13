@@ -7,7 +7,7 @@ type ClassReader struct {
 	index int
 }
 
-// u1 = unsigned 1 byte  = 1 字节无符号整数 = 8 bi
+// u1 = unsigned 1 byte  = 1 字节无符号整数 = 8 bit
 func (c *ClassReader) readUint8() uint8 {
 	var value uint8
 	value = c.data[c.index]
