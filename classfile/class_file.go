@@ -45,10 +45,6 @@ type ConstantPool []ConstantInfo
 // ConstantInfo 表示常量池中的一个常量项。
 type ConstantInfo interface{}
 
-// MemberInfo 表示字段或方法的基础信息。
-// 字段和方法在 class 文件中的结构非常相似，所以可以共用这个类型。
-type MemberInfo struct{}
-
 // AttributeInfo 表示 class 文件、字段或方法上的属性信息。
 type AttributeInfo interface{}
 
